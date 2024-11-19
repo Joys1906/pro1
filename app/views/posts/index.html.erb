@@ -1,0 +1,30 @@
+<h1>Posts</h1>
+<hr>
+
+<div class="row">
+  <% @posts.each do |x| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <% if x.image.present? %>
+          <%= image_tag x.image.url(:medium), class: 'card-img-top img-fluid' %>
+        <% else %>
+          <div class="alert alert-warning">
+            <p>No image available</p>
+          </div>
+        <% end %>
+        
+        <div class="card-body">
+          <!-- Mostrar el nombre o correo del usuario que publicó el post -->
+          <p class="text-muted">Publicado por: <%= x.user.email %></p>
+          <h5 class="card-title"><%= x.description.truncate(50) %></h5>
+
+          <div class="link">
+            <%= link_to "Show", x, class: 'btn btn-primary' %>
+            <%= link_to "Edit", edit_post_path(x), class: 'btn btn-warning' %>
+            <%= link_to "Destroy", post_path(x), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

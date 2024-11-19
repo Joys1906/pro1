@@ -1,0 +1,33 @@
+<h1>Post Details</h1>
+<hr>
+
+
+ <div class="row">
+      <div class="col-lg-12 text-right" style="margin-top: 20px;">
+        <%= link_to "Back", root_path, class: "btn btn-primary" %>
+      </div>
+  </div>
+
+<div class="card mb-4">
+  <% if @post.image.present? %>
+    <%= image_tag(@post.image.url(:original), class: "card-img-top") %>
+  <% else %>
+    <div class="card-body">
+      <p class="text-muted">No image available</p>
+    </div>
+  <% end %>
+
+  
+
+  <div class="card-body">
+    <!-- Mostrar el nombre o correo del usuario que publicó el post -->
+    <p class="text-muted">Publicado por: <%= @post.user.email %></p> 
+    <h5 class="card-title">Descripción</h5>
+    <p class="card-text"><%= @post.description %></p>
+    
+    <div class="d-flex justify-content-between">
+      <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-warning' %>
+      <%= button_to "Destroy", @post, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>

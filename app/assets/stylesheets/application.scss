@@ -1,0 +1,62 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// application.scss
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1dfe9; // Fondo claro
+    color: #0c0c0c; // Texto oscuro
+}
+
+nav.navbar {
+    background-color: #000000; // Encabezado en negro
+}
+
+.post {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ec8ebd;
+    border-radius: 15px;
+    background-color: #fff0f5; // Fondo rosa claro
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra suave
+    color: #333;
+}
+
+.post h5, .card-title {
+    font-size: 1.5rem;
+    color: #e08d8d;
+    font-weight: bold;
+}
+
+.post p, .card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff0f5; // Fondo rosa pastel
+}
+
+.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.btn-primary {
+    background-color: #ec8ebd;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d88b8b;
+}

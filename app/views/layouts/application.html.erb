@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Instagram</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+  <!-- Meta Tags para SEO y Responsividad -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Una aplicación de red social para compartir fotos y momentos.">
+  <meta name="author" content="Tu Nombre">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_path %>">Instagram</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Inicio", root_path %></li>
+          <li><%= link_to "Nuevo Post", new_post_path %></li>
+          <% if current_user %>
+            <li>
+              <%= form_with url: destroy_user_session_path, method: :delete, local: true do %>
+                <button type="submit" class="btn btn-link navbar-btn">Cerrar Sesión</button>
+              <% end %>
+            </li>
+          <% else %>
+            <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>
+            <li><%= link_to "Registrarse", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+  
+
+    <!-- Flash Messages -->
+    <div class="row">
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %>"><%= message %></div>
+      <% end %>
+    </div>
+    <!-- End Flash Messages -->
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    body { padding-top: 70px; }
+  </style>
+</body>
+</html>
+
