@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem 'jquery-rails'
 gem 'paperclip', '~> 6.1'
-gem 'aws-sdk', '~> 2.0'
+gem 'aws-sdk', '~> 3.2'
 gem 'bootstrap-sass','~>3.3.5'
 gem 'devise'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
